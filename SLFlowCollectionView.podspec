@@ -3,9 +3,10 @@ Pod::Spec.new do |s|
 
   s.name         = "SLFlowCollectionView"
   s.version      = "0.0.1"
-  s.summary      = "waterfall, flow, pinterest, view, infinite, scrolling, collectionView,"
+  s.summary      = "waterfall, flow, pinterest, view, infinite, scrolling, collectionView, 瀑布流"
 
   s.description  = <<-DESC
+  			waterfall, flow, pinterest, view, infinite, scrolling, collectionView
                    DESC
 
   s.homepage     = "https://github.com/Sanchew/SLFlowCollectionView"
