@@ -23,5 +23,7 @@ Pod::Spec.new do |s|
   s.source_files = "SLFlowCollectionView/Source/**/*.swift"
 
   s.requires_arc = true
+ 
+  s.framewords   = "UIKit"
 
 end
