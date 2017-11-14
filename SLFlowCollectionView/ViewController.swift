@@ -36,7 +36,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if arc4random() % 10 == 0 {
+//        if arc4random() % 10 == 0 {
+        if indexPath.item % 24 == 0 && indexPath.item > 0 {
             return CGSize(width: UIScreen.main.bounds.width, height: CGFloat(arc4random() % 300) + 100)
         }
         return SLFlowCollectionViewCell.cellSize()

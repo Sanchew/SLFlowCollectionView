@@ -48,6 +48,9 @@ public class SLFlowCollectionViewLayout: UICollectionViewFlowLayout {
         
         var frame = CGRect(origin: .zero, size: delegate.cellSizeFromItem(at: indexPath))
         let itemSpec = (ScreenWidth - floor(ScreenWidth / frame.width) * frame.width) / (floor(ScreenWidth / frame.width) + 1)
+        if indexPath.item == 24 {
+            print("fuck")
+        }
         if ScreenWidth - itemSpec - current.1 < frame.width {
             previous = current
             current = (false, 0, [CGRect]())
@@ -72,7 +75,17 @@ public class SLFlowCollectionViewLayout: UICollectionViewFlowLayout {
                 if previous!.2.count == 1 || previous!.2.count < current.2.count + 1 {
                     frame.origin.y = previous!.2[0].maxY + lineSpacing
                 }else{
-                    frame.origin.y = previous!.2[current.2.count].maxY + lineSpacing
+                    if frame.width > previous!.2[current.2.count].width {
+                        var top = CGFloat(0)
+                        for it in previous!.2 {
+                            if top < it.maxY {
+                                top = it.maxY
+                            }
+                        }
+                        frame.origin.y = top + lineSpacing
+                    }else{
+                        frame.origin.y = previous!.2[current.2.count].maxY + lineSpacing
+                    }
                 }
 
         }
