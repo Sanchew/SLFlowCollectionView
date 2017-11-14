@@ -8,15 +8,15 @@
 
 import UIKit
 
-protocol SLFlowCollectionViewLayoutDelegate {
+public protocol SLFlowCollectionViewLayoutDelegate {
     func cellSizeFromItem(at indexPath: IndexPath) -> CGSize;
 }
 
 private let ScreenWidth = UIScreen.main.bounds.width
 
-class SLFlowCollectionViewLayout: UICollectionViewFlowLayout {
+public class SLFlowCollectionViewLayout: UICollectionViewFlowLayout {
 
-    var delegate: SLFlowCollectionViewLayoutDelegate!
+    private var delegate: SLFlowCollectionViewLayoutDelegate!
     
     private var frames = [[(false, CGFloat(0), [CGRect]())]]
     private var attributes: [UICollectionViewLayoutAttributes]?
@@ -26,18 +26,18 @@ class SLFlowCollectionViewLayout: UICollectionViewFlowLayout {
         super.init()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.delegate = self.collectionView?.delegate as? SLFlowCollectionViewLayoutDelegate
     }
     
-    override func prepare() {
+    override public func prepare() {
         super.prepare()
         frames = [[(false, 0, [CGRect]())]]
         attributes = nil
     }
 
-    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+    override public func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         var frames = self.frames[indexPath.section]
         if frames.last?.0 ?? false {
             frames.append((false, 0, [CGRect]()))
@@ -88,7 +88,7 @@ class SLFlowCollectionViewLayout: UICollectionViewFlowLayout {
         return attribute
     }
 
-    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         guard let count = self.collectionView?.numberOfItems(inSection: 0) else { return nil }
         if attributes == nil {
             self.attributes = (0..<count).map{
@@ -98,7 +98,7 @@ class SLFlowCollectionViewLayout: UICollectionViewFlowLayout {
         return attributes
     }
 
-    override var collectionViewContentSize: CGSize {
+    override public var collectionViewContentSize: CGSize {
         var height = CGFloat(0);
         if let (_,_,frames) = frames.last?.last {
             for frame in frames {

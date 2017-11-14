@@ -8,15 +8,15 @@
 
 import UIKit
 
-class SLFlowCollectionView: UICollectionView, SLFlowCollectionViewLayoutDelegate {
+public class SLFlowCollectionView: UICollectionView, SLFlowCollectionViewLayoutDelegate {
     
 
-    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+    override public init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         configLayout()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         configLayout()
     }
@@ -25,7 +25,7 @@ class SLFlowCollectionView: UICollectionView, SLFlowCollectionViewLayoutDelegate
         self.collectionViewLayout = SLFlowCollectionViewLayout(self)
     }
     
-    func cellSizeFromItem(at indexPath: IndexPath) -> CGSize {
+    public func cellSizeFromItem(at indexPath: IndexPath) -> CGSize {
         guard let delegate = self.delegate as? UICollectionViewDelegateFlowLayout else {
             return .zero
         }
