@@ -24,6 +24,6 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
  
-  s.framewords   = "UIKit"
+  s.frameworks   = "UIKit"
 
 end
