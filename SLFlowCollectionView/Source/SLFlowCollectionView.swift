@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class SLFlowCollectionView: UICollectionView, SLFlowCollectionViewLayoutDelegate {
+open class SLFlowCollectionView: UICollectionView, SLFlowCollectionViewLayoutDelegate {
     
 
     override public init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
