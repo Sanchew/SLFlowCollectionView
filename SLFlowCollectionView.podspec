@@ -2,8 +2,8 @@
 Pod::Spec.new do |s|
 
   s.name         = "SLFlowCollectionView"
-  s.version      = "0.0.2"
-  s.summary      = "waterfall, flow, pinterest, view, infinite, scrolling, collectionView, 瀑布流"
+  s.version      = "0.0.3"
+  s.summary      = "waterfall, flow, pinterest, view, infinite, scrolling, collectionView, 瀑布流, SLFlowCollectionView"
 
   #s.description  = <<-DESC
   #			waterfall, flow, pinterest, view, infinite, scrolling, collectionView
