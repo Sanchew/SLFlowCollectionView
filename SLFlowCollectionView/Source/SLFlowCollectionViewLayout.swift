@@ -102,6 +102,7 @@ open class SLFlowCollectionViewLayout: UICollectionViewFlowLayout {
     }
 
     override open func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        guard let numberOfSections =  self.collectionView?.numberOfSections, numberOfSections > 0 else { return nil }
         guard let count = self.collectionView?.numberOfItems(inSection: 0) else { return nil }
         if attributes == nil {
             self.attributes = (0..<count).map{
