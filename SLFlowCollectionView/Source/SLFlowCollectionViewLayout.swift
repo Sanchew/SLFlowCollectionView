@@ -47,7 +47,7 @@ open class SLFlowCollectionViewLayout: UICollectionViewFlowLayout {
         var previous = frames.count > 1 ? frames[frames.count - 2] : nil
         
         var frame = CGRect(origin: .zero, size: delegate.cellSizeFromItem(at: indexPath))
-        let itemSpec = (ScreenWidth - floor(ScreenWidth / frame.width) * frame.width) / (floor(ScreenWidth / frame.width) + 1)
+        let itemSpec = frame.width == 0 ? 0 : (ScreenWidth - floor(ScreenWidth / frame.width) * frame.width) / (floor(ScreenWidth / frame.width) + 1)
         if ScreenWidth - itemSpec - current.1 < frame.width {
             previous = current
             current = (false, 0, [CGRect]())
