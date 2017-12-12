@@ -12,7 +12,6 @@ public protocol SLFlowCollectionViewLayoutDelegate {
     func cellSizeFromItem(at indexPath: IndexPath) -> CGSize;
 }
 
-private let ScreenWidth = UIScreen.main.bounds.width
 
 open class SLFlowCollectionViewLayout: UICollectionViewFlowLayout {
 
@@ -20,6 +19,9 @@ open class SLFlowCollectionViewLayout: UICollectionViewFlowLayout {
     
     private var frames = [[(false, CGFloat(0), [CGRect]())]]
     private var attributes: [UICollectionViewLayoutAttributes]?
+    private var ScreenWidth: CGFloat {
+        return self.collectionView?.frame.width ?? 0
+    }
     
     init(_ delegate: SLFlowCollectionViewLayoutDelegate) {
         self.delegate = delegate
